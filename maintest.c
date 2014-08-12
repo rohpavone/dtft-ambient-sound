@@ -142,17 +142,13 @@ int main(void)
 		// calculate mags and such
 		for(int i = 0; i < freqs; i++)
 		{
-			mags[i] = 16*sqrt1(powers(sum[i].real, 2) + powers(sum[i].imag, 2));
-			for(int j = 0; j < mags[i]; j += 10)
-				fprintf(stdout, "#");
-			fprintf(stdout, "\n");
+			mags[i] = leds*sqrt1(powers(sum[i].real, 2) + powers(sum[i].imag, 2));
 		}
-		fclose(fout);
-		free(points);
-		free(sum);
-		points = NULL;
-		sum = NULL;
-		/*PORTD &= ~(1 << PD0);
+		
+		/*
+		debug code, not important
+
+		PORTD &= ~(1 << PD0);
 		PORTC &= ~(1 << PC5);
 		PORTC &= ~(1 << PC4);
 		if(adc_value[0] <85)
@@ -160,11 +156,9 @@ int main(void)
 		else if(adc_value[0] < 170)
 			PORTC |= (1 << PC5);
 		else
-			PORTC |= (1 << PC4);*/
-			
-		
-		
-	//}
+			PORTC |= (1 << PC4);*/	
+	}
+	
 	
 }
 
